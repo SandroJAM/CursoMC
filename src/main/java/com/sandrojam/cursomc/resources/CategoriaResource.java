@@ -26,6 +26,8 @@ public class CategoriaResource {
 	//public List<Categoria> listar() {
 	public ResponseEntity<?> find(@PathVariable Integer id) {	
 		
+		//Not try --- catch
+		
 		Categoria obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 		
