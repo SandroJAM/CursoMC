@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sandrojam.cursomc.domain.Categoria;
 import com.sandrojam.cursomc.repositories.CategoriaRepository;
-import com.sandrojam.cursomc.services.exceptions.ObjectNotFoundException;
+import com.sandrojam.cursomc.services.exceptions.ObjectNotFoundException; //import org.hibernate.ObjectNotFoundException; <-- ERRADO
 
 @Service
 public class CategoriaService {
