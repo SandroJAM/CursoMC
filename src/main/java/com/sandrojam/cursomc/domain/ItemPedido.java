@@ -5,12 +5,15 @@ import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //Classe de Associação
 
 @Entity
 public class ItemPedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@JsonIgnore // Nem olha para esse cara - A partir do ItemDePedido não serializa ninguém (nem pedido e nem produto)
 	@EmbeddedId
 	private ItemPedidoPK id = new ItemPedidoPK(); // Instancear - Obejeto auxiliar que vai ter a referência para o pedido
 	
@@ -32,10 +35,13 @@ public class ItemPedido implements Serializable {
 	}
 	
 	// Para ter acesso a Pedido e Produto fora da minha classe ItemPedido (Operação direta para melhorar a semântica
+	
+	@JsonIgnore
 	public Pedido getPedido() {
 		return id.getPedido();
 	}
 	
+	//@JsonIgnore
 	public Produto getProduto() {
 		return id.getProduto();
 	}
